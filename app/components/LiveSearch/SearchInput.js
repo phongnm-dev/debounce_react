@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 function SearchInput({value, onKeyInput}) {
-  const [getValue, setValue] = useState(value);
+  const [getValue, setValue] = useState(value || "");
 
   return (
       <input

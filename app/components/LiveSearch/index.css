@@ -24,33 +24,3 @@
   outline: none;
   padding: 10px 10px 10px 5px; 
 }
-
-.selected_item {
-  background-color: var(--multi-input-item-bg-color, #dedede);
-  border: var(--multi-input-item-border, 1px solid #ccc);
-  border-radius: 2px;
-  color: #222;
-  display: inline-block;
-  font-size: var(--multi-input-item-font-size, 14px);
-  margin: 5px;
-  padding: 2px 25px 2px 5px;
-  pointer-events: none;
-  position: relative;
-  top: -1px;
-}
-
-.selected_item:hover {
-  background-color: #eee;
-  color: black;
-}
-
-.selected_item::after {
-  color: black;
-  content: '×';
-  cursor: pointer;
-  font-size: 18px;
-  pointer-events: auto;
-  position: absolute;
-  right: 5px;
-  top: -1px;
-}

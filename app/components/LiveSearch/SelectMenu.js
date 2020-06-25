@@ -1,22 +1,24 @@
 import React, { useState, useEffect } from 'react';
 
 function SelectMenu(props) {
-  function isSelected(itemValue) {
-    if (props.multiple)  return props.valueItem.findIndex(item => item[props.valueField] === itemValue) !== -1;
-    return props.valueItem ? props.valueItem[props.valueField] === itemValue : false
+  function isSelected(selectedItem) {
+    if (props.multiple)  return props.value.includes(selectedItem);
+    return props.value === selectedItem
   }
 
-  function handleSelect(item) {
-    props.handleSelect && props.handleSelect(item);
+  function handleClickItem(item) {
+    props.handleClickItem && props.handleClickItem(item[props.valueField], !isSelected(item[props.valueField]));
   }
 
   return (
     <div class="kintoneplugin-dropdown-list">
       {
         props.options.map((item,index)=> {
-          return !isSelected(item[props.valueField]) && (
-            <div class="kintoneplugin-dropdown-list-item"  key={index} onClick={()=> {handleSelect(item)}}>
-              <span class="kintoneplugin-dropdown-list-item-name">{item[props.labelField]}</span>
+          return (
+            <div className="kintoneplugin-dropdown-list-item" key={index} onClick={()=> {handleClickItem(item)}}>
+              <span
+                className={`kintoneplugin-dropdown-list-item-name ${isSelected(item[props.valueField]) ? 'selected' : ''}`}
+              >{item[props.labelField]}</span>
             </div>)
         })
       }
