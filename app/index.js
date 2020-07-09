@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import LiveSearch from './components/LiveSearch'
+import LiveSearch from './components/search'
 import './index.css';
 
 class App extends React.Component {
@@ -24,13 +24,12 @@ class App extends React.Component {
             <div>
             <button onClick={() => {this.setOption()}}>changeOptions</button>
                 <LiveSearch
-                value={this.state.value}
                 options={this.state.options}
                 // multiple
                 labelField="label"
                 searching={this.state.searching}
                 valueField="value"
-                onChange={(value) => {
+                onSelect={(value) => {
                     this.setState({
                         value: value
                     })
@@ -44,7 +43,6 @@ class App extends React.Component {
                             });
                         }
                 }}>
-                Hello World
                 </LiveSearch>
             </div>
         )
